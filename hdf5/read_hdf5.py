@@ -1,8 +1,8 @@
 import h5py
-filename = 't6.hdf5'
+filename = 't24.hdf5'
 h5 = h5py.File(filename,'r')
 input_data = h5['default']
-h5.close()
+boxlen = h5["boxlen_pc"][()]
 # 36 variables in total
 var_dict = {0:"density", 1:"vx", 2:"vy", 3:"vz", 4:"pressure", 5:"temp",
             6:"C", 7:"N", 8:"O", 9:"F", 10:"Ne",
@@ -15,6 +15,7 @@ var_dict = {0:"density", 1:"vx", 2:"vy", 3:"vz", 4:"pressure", 5:"temp",
 i_x = 127
 i_y = 70
 i_z = 127
+print("Simulation box size (pc) = {:.4f}".format(boxlen))
 print("For grid No. x = {}, y = {}, z = {}:".format(i_x, i_y, i_z))
 print("Density (g/cm^3) = {:.4e}".format(input_data[i_x, i_y, i_z, 0]))
 print("X Vel (cm/s) = {:.4e}".format(input_data[i_x, i_y, i_z, 1]))
@@ -22,3 +23,5 @@ print("Y Vel (cm/s) = {:.4e}".format(input_data[i_x, i_y, i_z, 2]))
 print("Z Vel (cm/s) = {:.4e}".format(input_data[i_x, i_y, i_z, 3]))
 print("Mg Mass Fraction = {:.4f}".format(input_data[i_x, i_y, i_z, 12]))
 print("Si Mass Fraction = {:.4f}".format(input_data[i_x, i_y, i_z, 14]))
+
+h5.close()
