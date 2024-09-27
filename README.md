@@ -21,4 +21,4 @@ Example:
 >      Mg Mass Fraction = 0.1123  
 >      Si Mass Fraction = 0.1360  
 
-# Or just use the hdf5 option with hdf5 files and python script example in ./hdf5 folder
+### Or just use the hdf5 option with hdf5 files and python script example in ./hdf5 folder
