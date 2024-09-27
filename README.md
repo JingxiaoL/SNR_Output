@@ -6,8 +6,8 @@ Each t*.tgz is a compressed file of a snapshot, t1 means snapshot at t=1 month, 
 Script read_ramses_output.py is an example for how to read simulation output (requires numpy and scipy)
 
 Example:  
-1.Download t24.tgz  
-2.Unzip the file  
+1. Download t24.tgz  
+2. Unzip the file  
   >tar -zxvf t24.tgz
 
   This creates a folder named t24 (2.4GB when unzipped)  
@@ -20,3 +20,5 @@ Example:
 >      Z Vel (cm/s) = -1.1768e+07  
 >      Mg Mass Fraction = 0.1123  
 >      Si Mass Fraction = 0.1360  
+
+# Or just use the hdf5 option with hdf5 files and python script example in ./hdf5 folder
