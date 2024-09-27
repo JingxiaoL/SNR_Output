@@ -1,7 +1,7 @@
 import json
 import numpy as np
 from scipy.io import FortranFile
-# with all 36 variables loaded this script takes ~5.9GB of RAM
+# with all 36 variables loaded this script takes ~3GB of RAM
 
 # the output contains 5 basic hydro variable and 31 mass fraction variable (1 ism, 27 elements and 3 radioactive isotopes)
 # var_dict controls the variables this script reads
@@ -36,7 +36,7 @@ dvol = dx**3 # grid volume (in pc^3)
 dvol_cm3 = dvol * scale_l**3 # grid volume in cm^3
 aexp_dot = comoving_info["lambda_exp"]**(1-comoving_info["lambda_exp"]) * (comoving_info['aexp'])**((comoving_info["lambda_exp"]-1)/comoving_info["lambda_exp"])
 
-input_data = np.zeros((2**ilevel, 2**ilevel, 2**ilevel, len(var_dict)))
+input_data = np.zeros((2**ilevel, 2**ilevel, 2**ilevel, len(var_dict)), dtype='f')
 
 # read desity/mass
 raw = FortranFile("{}/{}.dat".format(target_dir,var_dict[0]), "r")
@@ -93,6 +93,9 @@ for i in var_dict.keys():
     dat = dat.reshape(nz, ny, nx)
     input_data[:, :, :, i] = dat
 # you can now access all variables of the simulation output from input_data array
+# import h5py
+# with h5py.File('test.hdf5', 'w') as f: 
+    # dset = f.create_dataset("default", data = input_data, compression="gzip", compression_opts=4)
 i_x = 127
 i_y = 70
 i_z = 127
