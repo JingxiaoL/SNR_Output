@@ -10,7 +10,7 @@ Example:
 2.Unzip the file  
   >tar -zxvf t24.tgz
 
-  This creates a folder name t24 (2.4GB when unzipped)  
+  This creates a folder named t24 (2.4GB when unzipped)  
 3. Edit line 17 of read_ramses_output.py to point at the t24 folder (target_dir = "t24")  
 4. Run "python3 read_ramses_output.py" and it should prints something like this:  
 >      For grid No. x = 127, y = 70, z = 127:  
